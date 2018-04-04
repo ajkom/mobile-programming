@@ -70,24 +70,6 @@ export default class App extends React.Component {
     );
   }
 
-/*  componentDidMount() {
-	  this.getLocation();
-    Alert.alert("getting location");
-  }
-
-getLocation = async () => {
-//Check permission
-let { status } = await Permissions.askAsync(Permissions.LOCATION);
-	if (status !== 'granted') {
-		Alert.alert('No permission to access location');
-	}
-	else {
-		let location = await Location.getCurrentPositionAsync({enableHighAccuracy:false});
-		this.setState({ location });
-}
-};*/
-
-
 }
 
 
