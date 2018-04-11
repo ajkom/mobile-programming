@@ -19,7 +19,6 @@ export default class Map extends React.Component {
         title: ''
       }
 
-
 }
 
 componentDidMount() {
@@ -27,12 +26,11 @@ componentDidMount() {
   const address = params.address;
 
   this.fetchAddress(address);
-
 }
 
   fetchAddress = (address) => {
     const key = 'AIzaSyClulqjPepQjs9IWY8qfUlcUIHeFyr_2Ys';
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${key}`;
+    const url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key='+key;
 
     fetch(url)
         .then((response) => response.json())
@@ -84,10 +82,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  search: {
-    position: 'absolute',
-    bottom:5,
-    width: 300,
-  },
+  }
 });

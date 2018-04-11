@@ -3,10 +3,13 @@ import {StatusBar, StyleSheet, View, FlatList,  Dimensions} from 'react-native';
 import Expo, { SQLite } from 'expo';
 import {StackNavigator} from 'react-navigation';
 import { FormInput, Header, FormLabel, Button, List, ListItem } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const db = SQLite.openDatabase('myplacesdb.db');
 
 export default class MyPlaces extends React.Component {
+  static navigationOptions = {title: 'My Places'};
+
   constructor(props) {
     super(props);
     this.state = {address: '', myplaces: []};
@@ -80,14 +83,19 @@ export default class MyPlaces extends React.Component {
             onChangeText={(address) => this.setState({address})}
             value={this.state.address}/>
 
-          <Button onPress={this.saveItem} title="SAVE" buttonStyle={{width: width}}/>
+          <Button
+            icon={{ name: "save" }}
+            onPress={this.saveItem}
+            title="SAVE"
+            buttonStyle={{width: width}}
+          />
 
           <FlatList
             data={this.state.myplaces}
             style={{width: width}}
             keyExtractor={item => item.id}
             renderItem={this.renderItem}
-           ItemSeparatorComponent={this.listSeparator}
+            ItemSeparatorComponent={this.listSeparator}
           />
 
           </View>
@@ -106,10 +114,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    inputs: {
-      backgroundColor:'red',
-      position:"absolute",
-
     }
 });
